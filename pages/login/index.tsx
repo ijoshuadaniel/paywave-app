@@ -20,11 +20,11 @@ const Login = ({navigation}: any) => {
   let userCheckDone = false;
 
   const requestLogin = async () => {
-    const isPhone = phone !== '' && phone.length === 10;
-    if (isPhone) {
+    const isEmail = email !== '' && validateEmail(email);
+    if (isEmail) {
       setLoading(true);
       const response = await Axios.post('/checkUser', {
-        phone,
+        email,
       });
       setLoading(false);
       if (response) {
@@ -35,7 +35,7 @@ const Login = ({navigation}: any) => {
         }
       }
     } else {
-      ErrorToast('Please enter valid phone number.');
+      ErrorToast('Please enter valid Email Address.');
     }
   };
 
@@ -44,14 +44,14 @@ const Login = ({navigation}: any) => {
     const isName = name !== '' && name.length >= 3;
     const isPhone = phone !== '' && phone.length === 10;
 
-    if (!isPhone) {
-      return ErrorToast('Please enter valid phone number.');
+    if (!isEmail) {
+      return ErrorToast('Please enter valid email.');
     }
     if (!userCheckDone) {
       if (!isName) {
         return ErrorToast('Please enter valid name.');
-      } else if (!isEmail) {
-        return ErrorToast('Please enter valid email.');
+      } else if (!isPhone) {
+        return ErrorToast('Please enter valid phone.');
       }
     }
     setLoading(true);
@@ -63,7 +63,7 @@ const Login = ({navigation}: any) => {
     setLoading(false);
     if (response) {
       if (response.status === 200) {
-        navigation.navigate('Otp', {...response.data, name, email});
+        navigation.navigate('Otp', {...response.data, phone, name, email});
       }
     }
   };
@@ -71,7 +71,7 @@ const Login = ({navigation}: any) => {
   return (
     <SafeAreaView>
       <View style={style.background}>
-        <View style={style.content}>
+        <View>
           <StatusBar backgroundColor={'#fff'} barStyle={'light-content'} />
           <SafeAreaView style={defaultStyle.pad}>
             <View style={style.headerWrapper}>
@@ -82,11 +82,10 @@ const Login = ({navigation}: any) => {
               <Text style={style.sloganTwo}>Your Credit, Your Control</Text>
             </View>
             <InputText
-              keyBoardType="number-pad"
-              text="Phone Number"
-              onChange={showFields ? () => {} : setPhone}
-              value={phone}
-              maxLength={10}
+              keyBoardType="email-address"
+              text="Email Address"
+              value={email}
+              onChange={showFields ? () => {} : setEmail}
             />
             {showFields && (
               <>
@@ -97,10 +96,11 @@ const Login = ({navigation}: any) => {
                   value={name}
                 />
                 <InputText
-                  keyBoardType="email-address"
-                  text="Email"
-                  onChange={setEmail}
-                  value={email}
+                  keyBoardType="number-pad"
+                  text="Phone Number"
+                  onChange={setPhone}
+                  maxLength={10}
+                  value={phone}
                 />
               </>
             )}
@@ -108,7 +108,7 @@ const Login = ({navigation}: any) => {
         </View>
         <View style={style.buttonView}>
           <Button
-            text="NEXT"
+            text="Send OTP"
             textStyle={style.buttonText}
             buttonStyle={style.buttonStyle}
             onPress={showFields ? requestOtp : requestLogin}

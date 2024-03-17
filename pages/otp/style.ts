@@ -8,6 +8,9 @@ const style = StyleSheet.create({
     height,
     backgroundColor: '#EBE5FE',
   },
+  // content: {
+  //   height: '80%',
+  // },
   headerWrapper: {
     display: 'flex',
     alignItems: 'center',
@@ -26,15 +29,12 @@ const style = StyleSheet.create({
     textAlign: 'center',
   },
   buttonView: {
-    position: 'absolute',
     width: '100%',
-    bottom: 30,
     padding: 15,
   },
   buttonStyle: {
     backgroundColor: colors.primary,
     padding: 20,
-    marginTop: 30,
     marginBottom: 15,
     borderRadius: 10,
   },

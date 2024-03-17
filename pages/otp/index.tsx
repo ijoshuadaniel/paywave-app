@@ -22,7 +22,7 @@ const Otp = ({navigation}: any) => {
   const {setLoading, setUser} = useContext(AppContext);
   const [seconds, setSeconds] = useState(90);
   const route = useRoute();
-  const {phone}: any = route.params;
+  const {email}: any = route.params;
 
   const login = async () => {
     const isOtp = otp !== '' && otp.length === 6;
@@ -33,7 +33,7 @@ const Otp = ({navigation}: any) => {
     setLoading(true);
     const response = await Axios.post('/login', {
       otp,
-      phone,
+      email,
     });
     setLoading(false);
     if (response) {
@@ -61,7 +61,7 @@ const Otp = ({navigation}: any) => {
     setSeconds(90);
     SuccessToast('Opt Sent Successfully');
     await Axios.post('/sendOtp', {
-      phone,
+      email,
     });
     setLoading(false);
   };

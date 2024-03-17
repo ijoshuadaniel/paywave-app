@@ -9,7 +9,7 @@ const Payment = ({route, navigation}: any) => {
   const {orderId, data} = route.params;
 
   const handleBack = () => {
-    console.log('back');
+    console.log('/');
     return true;
   };
 

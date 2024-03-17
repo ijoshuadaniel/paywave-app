@@ -3,10 +3,11 @@ import colors from '../../utils/colors';
 
 const {width, height} = Dimensions.get('screen');
 const style = StyleSheet.create({
-  wrapper: {
+  content: {
     width: width - 30,
-    height: height - 80,
+    height: '86%',
   },
+  wrapper: {},
   inputWrapper: {
     marginTop: 20,
   },
@@ -38,6 +39,9 @@ const style = StyleSheet.create({
     marginTop: 10,
     borderTopWidth: 1,
   },
+  btnView: {
+    height: '20%',
+  },
   addBeneficiaryText: {
     color: colors.white,
     fontSize: 14,
@@ -50,10 +54,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.primary,
     padding: 20,
     borderRadius: 10,
-    marginTop: 20,
-    position: 'absolute',
-    bottom: 0,
-    flex: 1,
   },
   chargesTotalText: {
     fontSize: 16,

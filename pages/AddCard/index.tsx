@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
-import Button from '../../components/Button';
 import Header from '../../components/Header';
 import InputText from '../../components/Text';
 import SelectField from '../../components/select';
@@ -67,7 +66,13 @@ const AddCard = ({navigation}: any) => {
   return (
     <>
       <SafeAreaView style={defaultStyle.pad}>
-        <Header text="Add Card" onClick={() => navigation.navigate('Home')} />
+        <Header
+          text="Add Card"
+          onClick={() => navigation.navigate('Home')}
+          button={true}
+          buttonText={'SAVE'}
+          btnOnClick={validateFields}
+        />
         <View style={style.cardWrapper}>
           <ScrollView
             style={style.scrollView}
@@ -110,12 +115,6 @@ const AddCard = ({navigation}: any) => {
             />
           </ScrollView>
         </View>
-        <Button
-          text="Add Card"
-          textStyle={style.cardText}
-          buttonStyle={style.cardButton}
-          onPress={() => validateFields()}
-        />
       </SafeAreaView>
     </>
   );

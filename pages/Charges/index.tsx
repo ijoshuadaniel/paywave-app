@@ -90,64 +90,69 @@ const Charges = ({route, navigation}: any) => {
     const response = await Axios.post(apiUrl.pay, data);
     setLoading(false);
     if (response) {
+      console.log(response.data, 'dsd');
       if (response.status === 200) {
-        navigation.navigate('Payment', {...response.data});
+        // navigation.navigate('Payment', {...response.data});
       }
     }
   };
 
   return (
     <SafeAreaView style={defaultStyle.pad}>
-      <View style={style.wrapper}>
-        <Header text="Charges" onClick={() => navigation.navigate('Home')} />
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={style.inputWrapper}>
-            <SelectField
-              label="Choose transfer method"
-              data={transferType}
-              value={transferName}
-              onChange={setTransferName}
-            />
-            <View style={style.charges}>
-              <View style={style.chargesFlex}>
-                <Text>Transfer Amount</Text>
-                <Text>₹{amount}</Text>
-              </View>
-              <View style={style.chargesFlex}>
-                <Text>Platform Fee</Text>
-                <Text>₹{platformCharge}</Text>
-              </View>
-              <View style={style.chargesFlex}>
-                <Text>Standard Charges</Text>
-                <Text>₹{standardCharges}</Text>
-              </View>
-              {transferName === instantTransfer && (
+      <View style={style.content}>
+        <View style={style.wrapper}>
+          <Header text="Charges" onClick={() => navigation.navigate('Home')} />
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={style.inputWrapper}>
+              <SelectField
+                label="Choose transfer method"
+                data={transferType}
+                value={transferName}
+                onChange={setTransferName}
+              />
+              <View style={style.charges}>
                 <View style={style.chargesFlex}>
-                  <Text>Instant Charges</Text>
-                  <Text>₹{instantCharges}</Text>
+                  <Text>Transfer Amount</Text>
+                  <Text>₹{amount}</Text>
                 </View>
-              )}
-              <View style={style.chargesTotal}>
-                <Text style={style.chargesTotalText}>Total Amount</Text>
-                <Text style={style.chargesTotalText}>
-                  ₹{caluclateTransferCharges()}
-                </Text>
+                <View style={style.chargesFlex}>
+                  <Text>Platform Fee</Text>
+                  <Text>₹{platformCharge}</Text>
+                </View>
+                <View style={style.chargesFlex}>
+                  <Text>Standard Charges</Text>
+                  <Text>₹{standardCharges}</Text>
+                </View>
+                {transferName === instantTransfer && (
+                  <View style={style.chargesFlex}>
+                    <Text>Instant Charges</Text>
+                    <Text>₹{instantCharges}</Text>
+                  </View>
+                )}
+                <View style={style.chargesTotal}>
+                  <Text style={style.chargesTotalText}>Total Amount</Text>
+                  <Text style={style.chargesTotalText}>
+                    ₹{caluclateTransferCharges()}
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
-          <Text style={style.adText}>Ads</Text>
-          <View style={style.adContainer}>
-            <BannerAds size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
-            <BannerAds size={BannerAdSize.MEDIUM_RECTANGLE} />
-          </View>
-        </ScrollView>
+            <Text style={style.adText}>Ads</Text>
+            <View style={style.adContainer}>
+              <BannerAds size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER} />
+              <BannerAds size={BannerAdSize.MEDIUM_RECTANGLE} />
+            </View>
+          </ScrollView>
+        </View>
       </View>
-      <Button
-        text="Confirm and Pay"
-        buttonStyle={style.addBeneficiaryButton}
-        textStyle={style.addBeneficiaryText}
-        onPress={() => confirmAndPay()}
-      />
+      <View style={style.btnView}>
+        <Button
+          text="Confirm and Pay"
+          buttonStyle={style.addBeneficiaryButton}
+          textStyle={style.addBeneficiaryText}
+          onPress={() => confirmAndPay()}
+        />
+      </View>
     </SafeAreaView>
   );
 };

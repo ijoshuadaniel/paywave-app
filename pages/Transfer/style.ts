@@ -14,7 +14,7 @@ const style = StyleSheet.create({
   },
   transferTop: {
     width: width - 30,
-    height: height - 100,
+    height: '95%',
     display: 'flex',
     alignItems: 'center',
     paddingTop: 50,
@@ -38,7 +38,7 @@ const style = StyleSheet.create({
   transferBottom: {
     position: 'absolute',
     width: width - 30,
-    height: '30%',
+    height: height / 3.4,
     bottom: 0,
     margin: 15,
     borderRadius: 10,
@@ -48,7 +48,7 @@ const style = StyleSheet.create({
   transferBottomCard: {
     width: '100%',
     backgroundColor: colors.white,
-    height: '50%',
+    height: height / 8,
     marginVertical: 10,
     borderRadius: 10,
     padding: 10,

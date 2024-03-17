@@ -5,7 +5,7 @@ const {width, height} = Dimensions.get('screen');
 const style = StyleSheet.create({
   wrapper: {
     width: width - 30,
-    height: height - 80,
+    height: '88%',
   },
   inputWrapper: {
     marginTop: 20,
@@ -23,9 +23,6 @@ const style = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     marginTop: 20,
-    position: 'absolute',
-    bottom: 0,
-    flex: 1,
   },
 });
 

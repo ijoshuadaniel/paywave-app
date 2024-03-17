@@ -29,12 +29,6 @@ interface bene {
   beneficiaryConfirmAccountNumber: string;
   beneficiaryName: string;
   ifscCode: string;
-  bank: string;
-  address: string;
-  city: string;
-  state: string;
-  branch: string;
-  ifscSubcode: string;
 }
 
 const Beneficiary = ({route, navigation}: Beneficiary) => {
@@ -112,10 +106,6 @@ const Beneficiary = ({route, navigation}: Beneficiary) => {
               <Text>ISFC Code</Text>
               <Text>{selectedBeneficiary.ifscCode}</Text>
             </View>
-            <View style={style.bottomSheetFlex}>
-              <Text>Branch</Text>
-              <Text>{selectedBeneficiary.branch}</Text>
-            </View>
           </View>
           <Button
             text="Delete Beneficiary"
@@ -151,11 +141,8 @@ const Beneficiary = ({route, navigation}: Beneficiary) => {
                       <Text style={style.beneficiaryAcc}>
                         {bene.beneficiaryAccountNumber}
                       </Text>
-                      <Text
-                        style={
-                          style.beneficiaryBank
-                        }>{`${bene.bank}, ${bene.branch}`}</Text>
                     </View>
+                    <Text style={style.beneficiaryIfsc}>{bene.ifscCode}</Text>
                   </View>
                 </TouchableOpacity>
               ))}

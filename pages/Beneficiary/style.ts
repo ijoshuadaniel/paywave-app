@@ -36,6 +36,10 @@ const style = StyleSheet.create({
     marginBottom: 2,
     fontWeight: '400',
   },
+  beneficiaryIfsc: {
+    color: colors.primary,
+    fontWeight: 'bold',
+  },
   addBeneficaryButton: {
     backgroundColor: colors.primary,
     padding: 15,

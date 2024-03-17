@@ -11,8 +11,6 @@ Axios.interceptors.request.use(
       Accept: 'application/json',
       time: new Date(),
     };
-    console.log(config, 'request');
-
     return config;
   },
   error => {
@@ -22,13 +20,10 @@ Axios.interceptors.request.use(
 
 Axios.interceptors.response.use(
   response => {
-    console.log(response, 'r');
-
     return response;
   },
   (error: AxiosError) => {
     console.log(error.message);
-
     if (error.response?.status === 401) {
     }
     return Promise.reject(error);

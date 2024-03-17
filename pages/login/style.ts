@@ -5,12 +5,10 @@ const {width, height} = Dimensions.get('screen');
 const style = StyleSheet.create({
   background: {
     width,
-    height,
+    height: height,
     backgroundColor: '#EBE5FE',
     display: 'flex',
-  },
-  content: {
-    minHeight: '75%',
+    flexDirection: 'column',
   },
   headerWrapper: {
     display: 'flex',
@@ -30,15 +28,11 @@ const style = StyleSheet.create({
     textAlign: 'center',
   },
   buttonView: {
-    width: '100%',
     padding: 15,
-    paddingBottom: 20,
   },
   buttonStyle: {
     backgroundColor: colors.primary,
-    padding: 20,
-    marginTop: 30,
-    marginBottom: 20,
+    padding: 15,
     borderRadius: 10,
   },
   buttonText: {

@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Button from '../../components/Button';
 import Header from '../../components/Header';
 import InputText from '../../components/Text';
 import AppContext from '../../context/context';
@@ -59,6 +58,9 @@ const AddBeneficiary = ({navigation}: AddBeneficiary) => {
         <Header
           text="Add Beneficiary"
           onClick={() => navigation.navigate('Home')}
+          button={true}
+          buttonText={'SAVE'}
+          btnOnClick={validateAndAddBeneificary}
         />
         <View style={style.inputWrapper}>
           <InputText
@@ -87,12 +89,6 @@ const AddBeneficiary = ({navigation}: AddBeneficiary) => {
           />
         </View>
       </View>
-      <Button
-        text="Verify and Add Beneficiary"
-        buttonStyle={style.addBeneficiaryButton}
-        textStyle={style.addBeneficiaryText}
-        onPress={() => validateAndAddBeneificary()}
-      />
     </SafeAreaView>
   );
 };

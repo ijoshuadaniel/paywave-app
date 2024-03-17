@@ -3,13 +3,18 @@ import colors from '../../utils/colors';
 
 const {width, height} = Dimensions.get('screen');
 const style = StyleSheet.create({
-  cardWrapper: {
-    height: height - 70,
+  content: {
+    width: width - 30,
+    height: '80%',
   },
+  cardWrapper: {},
   scrollView: {
-    height: height - 90,
+    height: '90%',
     marginTop: 20,
-    marginBottom: 100,
+  },
+  btnView: {
+    width: '100%',
+    height: '20%',
   },
   cardText: {
     color: colors.white,
@@ -23,8 +28,6 @@ const style = StyleSheet.create({
     backgroundColor: colors.primary,
     padding: 20,
     borderRadius: 10,
-    position: 'absolute',
-    bottom: 10,
   },
 });
 
