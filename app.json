@@ -1,4 +1,8 @@
 {
   "name": "paywave",
-  "displayName": "paywave"
+  "displayName": "paywave",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-5890405819189109~2429988108",
+    "ios_app_id": "ca-app-pub-5890405819189109~8803824763"
+  }
 }
